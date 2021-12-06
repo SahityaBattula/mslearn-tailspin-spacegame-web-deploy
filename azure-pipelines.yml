@@ -27,7 +27,7 @@ stages:
     - task: NodeTool@0
       inputs:
         versionSpec: '6.x'
-checkLatest: true
+        checkLatest: true
     - task: Npm@1
       displayName: 'Run npm install'
       inputs:
