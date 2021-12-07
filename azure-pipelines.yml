@@ -3,6 +3,7 @@ trigger:
 
 variables:
   buildConfiguration: 'Release'
+
 stages:
 - stage: 'Build'
   displayName: 'Build the web application'
@@ -13,15 +14,12 @@ stages:
       name: 'MyAgentPool'
       demands:
       - npm
-variables:
+
+    variables:
       wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
       dotnetSdkVersion: '5.x'
 
     steps:
-    - task: NodeTool@0
-      inputs:
-       versionSpec: '6.x'
-       checkLatest: true
     - task: UseDotNet@2
       displayName: 'Use .NET SDK $(dotnetSdkVersion)'
       inputs:
@@ -54,7 +52,8 @@ variables:
         command: 'build'
         arguments: '--no-restore --configuration $(buildConfiguration)'
         projects: '**/*.csproj'
-- task: DotNetCoreCLI@2
+
+    - task: DotNetCoreCLI@2
       displayName: 'Publish the project - $(buildConfiguration)'
       inputs:
         command: 'publish'
