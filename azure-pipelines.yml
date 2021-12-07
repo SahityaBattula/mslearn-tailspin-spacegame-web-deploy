@@ -1,7 +1,5 @@
 trigger:
-- "*"
-
-
+- '*'
 
 variables:
   buildConfiguration: 'Release'
@@ -18,8 +16,8 @@ stages:
       - npm
 
     variables:
-  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '5.x'
+      wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+      dotnetSdkVersion: '5.x'
 
 steps:
 - task: NodeTool@0
