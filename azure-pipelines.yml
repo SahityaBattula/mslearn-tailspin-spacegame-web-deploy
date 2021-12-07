@@ -1,13 +1,23 @@
 trigger:
 - "*"
 
-pool:
-  name: 'MyAgentPool'
-  demands:
-  - npm
+
 
 variables:
   buildConfiguration: 'Release'
+
+stages:
+- stage: 'Build'
+  displayName: 'Build the web application'
+  jobs: 
+  - job: 'Build'
+    displayName: 'Build job'
+    pool:
+      name: 'MyAgentPool'
+      demands:
+      - npm
+
+    variables:
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '5.x'
 
